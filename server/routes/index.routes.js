@@ -2,6 +2,7 @@ const express = require("express");
 const validation = require("../utils/validation");
 const { validate, Joi } = require("express-validation");
 const { newBooking } = require("../controllers/bookingController");
+const { isAuthenticatedUser } = require("../middleware/auth");
 const loginValidation = {
   body: Joi.object({
     email: Joi.string().email().required(),
@@ -35,6 +36,6 @@ router.post("/register", validate(registerValidation), authController.register);
 
 router.post("/login", authController.login);
 
-router.route("/booking").put(isAuthenticatedUser, newbooking);
+router.route("/booking").put(isAuthenticatedUser, newBooking);
 
 module.exports = router;

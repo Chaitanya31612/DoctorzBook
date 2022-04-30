@@ -1,17 +1,17 @@
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-const ErrorHandler=require("../utils/errorhandler");
-const Doctor =require("../models/Doctors")
+const ErrorHandler = require("../utils/errorhandler");
+const Doctor = require("../models/Doctors");
 
-exports.bookingController=catchAsyncErrors((req,res,next)=>{
-const user=req.user._id;
-const slot=req.body.slot;
+exports.newBooking = catchAsyncErrors(async (req, res, next) => {
+  const user = req.user._id;
+  const slot = req.body.slot;
 
-const doctor = await Doctor.findById(req.body.doctor);
-const booking={
-    user:user,
-    slot:slot,
-}
-const isBooked = Doctor.booking.find(
+  const doctor = await Doctor.findById(req.body.doctor);
+  const booking = {
+    user: user,
+    slot: slot,
+  };
+  const isBooked = Doctor.booking.find(
     (book) => book.slot.toString() === req.body.slot.toString()
   );
   if (isBooked) {
@@ -25,5 +25,4 @@ const isBooked = Doctor.booking.find(
   res.status(200).json({
     success: true,
   });
-
-})
+});
