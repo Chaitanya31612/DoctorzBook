@@ -1,5 +1,25 @@
 const express = require("express");
-const validate = require("express-validation");
+const validation = require("../utils/validation");
+const { validate, Joi } = require("express-validation");
+
+const loginValidation = {
+  body: Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string()
+      .regex(/[a-zA-Z0-9]{3,30}/)
+      .required(),
+  }),
+};
+
+const registerValidation = {
+  body: Joi.object({
+    name: Joi.string().min(1).max(60).trim().required(),
+    email: Joi.string().email().required(),
+    password: Joi.string()
+      .regex(/[a-zA-Z0-9]{3,30}/)
+      .required(),
+  }),
+};
 
 // Controllers
 const authController = require("../controllers/auth");
@@ -11,6 +31,8 @@ router.get("/check", (req, res) => {
 });
 
 // auth
-router.post("/register", authController.register);
+router.post("/register", validate(registerValidation), authController.register);
+
+router.post("/login", authController.login);
 
 module.exports = router;
