@@ -6,7 +6,9 @@ const doctorchema = mongoose.Schema({
   email: { type: String, required: true, min: 6, max: 255 },
   password: { type: String, required: true, max: 1024, min: 5 },
   city: { type: String, required: true, max: 1024, min: 5 },
-  
+  slot: [
+    { type: Number, required: true }
+  ],
 
 
 
