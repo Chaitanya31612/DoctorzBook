@@ -1,0 +1,59 @@
+.button {
+  &--primary {
+    background: linear-gradient(
+      to right,
+      $color-primary-dark,
+      $color-primary-light
+    );
+    padding: 1.8rem 3rem;
+    color: $color-white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: "Kalra", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+
+    &:hover {
+      box-shadow: 5px 5px 10px rgba($color-primary, 0.3);
+      background: linear-gradient(
+        to right,
+        $color-primary-dark,
+        $color-primary
+      );
+    }
+
+    &--small {
+      @include respond(tab-port) {
+        margin-top: 7rem;
+        font-size: 1.6rem;
+      }
+      @include respond(phone) {
+        margin-top: 10rem;
+      }
+    }
+  }
+
+  &--secondary {
+    padding: 0.8rem 2.5rem;
+    margin-left: 1.2rem;
+    margin-right: 0.5rem;
+    color: darken($color: gray, $amount: 10%);
+    // color: $color-primary;
+    // background-color: $color-white;
+    border-radius: 100px;
+    border: 1px solid $color-grey-dark-2;
+    // box-shadow: 4px 4px 4px rgba($color-primary, 0.1);
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+
+    &:hover {
+      // box-shadow: 4px 4px 4px rgba($color-primary, 0.2);
+      border: 1px solid $color-primary;
+      color: $color-primary;
+    }
+  }
+}

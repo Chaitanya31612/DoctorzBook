@@ -1,0 +1,30 @@
+.heading {
+  margin-bottom: 2rem;
+  color: $color-grey-dark-4;
+
+  &--primary {
+    font-size: 3.2rem;
+  }
+
+  &--white {
+    color: $color-white;
+  }
+
+  &--big {
+    font-size: 4rem;
+  }
+
+  &--extrabig {
+    font-size: 5rem;
+  }
+
+  // @include respond(tab-land) {
+  //   margin-left: 10rem;
+  // }
+  // @include respond(tab-port) {
+  //   @include center-x;
+  // }
+  // @include respond(phone) {
+  //   margin-left: 10rem;
+  // }
+}

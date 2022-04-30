@@ -1,0 +1,119 @@
+.form {
+  &__group {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &--first {
+      @include respond(tab-port) {
+        margin-top: 10rem;
+      }
+      //   @include respond(phone) {
+      //     margin-left: 0 !important;
+      //     margin-top: 10rem;
+      //   }
+    }
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1rem 20rem;
+    padding-left: 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.7);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid rgba(green, 0.8);
+
+      &:invalid {
+        border-bottom: 3px solid rgba(red, 0.8);
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    // margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+    color: $color-grey-light-1;
+    font-weight: 300;
+  }
+
+  // + is adjacent sibling selector, and this is written because the order of html matters
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 5px solid $color-primary;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $color-primary;
+      height: 1.4rem;
+      width: 1.4rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  // ~ can be used for any level of sibling not necessarily first
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}

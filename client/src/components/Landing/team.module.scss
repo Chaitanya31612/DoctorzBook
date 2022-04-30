@@ -1,0 +1,15 @@
+@import "../../styles/abstracts/variables";
+
+.Team {
+  padding: 4rem;
+  font-size: 28px;
+  overflow: hidden;
+  background-color: $color-grey-light-1;
+
+  .projectMaintainers {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    flex-wrap: wrap;
+  }
+}

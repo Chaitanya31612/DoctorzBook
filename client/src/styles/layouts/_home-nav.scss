@@ -1,0 +1,245 @@
+// mobile nav
+.navigation {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  &__logo {
+    font-size: 2.2rem;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    z-index: 2000;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+    text-align: center;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.72, 0.2, 0.47, 1.31);
+  }
+
+  &__list {
+    @include centerscreen;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    margin: 1rem;
+
+    &--auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 250%;
+      transition: all 0.4s;
+    }
+
+    &:hover,
+    &:active {
+      transition: none;
+      text-decoration: overline;
+    }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.3rem;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked ~ &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked ~ &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+// DESKTOP Version
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  font-size: 1.4rem;
+  padding: 2rem 0;
+
+  &--active {
+    background-color: $color-white;
+  }
+
+  @include respond(tab-land) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  &__logo {
+    font-size: 2.2rem;
+  }
+
+  &__nav {
+    flex: 1;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-item {
+      margin-right: 3rem;
+      transition: all 0.1s ease;
+
+      &:hover {
+        border-bottom: 2px solid $color-primary;
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $color-grey-dark-4;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-login {
+      color: $color-grey-dark-4;
+      border-right: 1px $color-grey-light-3 solid;
+      padding-right: 1.2rem;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}

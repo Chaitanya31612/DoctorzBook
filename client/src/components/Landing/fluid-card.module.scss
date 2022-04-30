@@ -1,0 +1,76 @@
+@import "../../styles/abstracts/variables";
+
+.card-container {
+  padding: 10px;
+
+  .div-liquid {
+    position: relative;
+    width: 290px;
+    height: 290px;
+    cursor: pointer;
+
+    canvas {
+      position: absolute;
+      z-index: 99999;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    align-items: center;
+
+    .header {
+      position: relative;
+      z-index: 3;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      .name {
+        font-weight: 600;
+        color: $color-grey-dark-3;
+        font-size: 3rem;
+      }
+      .title {
+        font-size: 1.7rem;
+        color: $grey;
+      }
+    }
+
+    .socialLinks {
+      display: flex;
+      align-items: flex-end;
+      height: 54px;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 10px;
+
+      .socialicon {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        width: 64px;
+        height: 64px;
+        background-color: $white;
+        margin: 8px;
+        border-radius: 100%;
+        box-shadow: 2px 5px 15px $black-light-tint;
+        justify-content: center;
+        align-items: center;
+      }
+      .linkedin {
+        &:hover {
+          filter: invert(0.1);
+        }
+      }
+      .github {
+        &:hover {
+          filter: invert(1);
+          box-shadow: 2px 5px 15px $white-light-tint;
+        }
+      }
+    }
+  }
+}

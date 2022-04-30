@@ -1,0 +1,46 @@
+.notfound {
+  display: flex;
+  // align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  overflow-y: hidden;
+  transform: scale(0.9);
+
+  &__logo {
+    @include respond(tab-land) {
+      transform: scale(0.7);
+    }
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__content {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+
+    @include respond(tab-land) {
+      width: 90%;
+      justify-content: space-between;
+    }
+
+    & h1 {
+      color: $color-grey-dark-3;
+      margin-bottom: 5rem;
+    }
+
+    &-text {
+      color: $color-purple;
+      font-size: 2.3rem;
+      margin-bottom: 5rem;
+    }
+
+    &-button {
+      font-size: 1.5rem;
+    }
+  }
+}

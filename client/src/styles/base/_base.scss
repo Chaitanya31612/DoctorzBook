@@ -1,0 +1,96 @@
+// font
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&family=Lato:wght@300;400;700&display=swap");
+
+*,
+*::after, /* put on actual as well as psedu elements*/
+*::before {
+  margin: 0;
+  padding: 0;
+  /* inherit box sizing property from body and all elements will have it */
+  box-sizing: inherit;
+}
+
+html {
+  //  this defines what 1 rem is
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Poppins", sans-serif;
+  // padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  transition: all 2s ease;
+}
+
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+  border-radius: 6px;
+  background: $color-white;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  max-height: 6px;
+  // -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,1);
+  background: darken($color-primary-light, 10);
+  transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $color-primary-dark;
+}
+
+::selection {
+  background-color: $color-primary-light;
+  color: $color-white;
+}
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2500ms ease-in;
+}

@@ -1,0 +1,146 @@
+// Login Form
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-grey-light-2;
+  height: 100vh;
+  overflow: hidden;
+
+  &__sidebar {
+    height: 100vh;
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(
+      to bottom,
+      rgba($color-primary, 0.3),
+      rgba($color-primary, 0.2)
+    );
+    padding: 5rem 0;
+
+    &-logo {
+      & img {
+        width: 40rem;
+        margin: 0 3rem;
+      }
+    }
+
+    &-links {
+      margin-bottom: 5rem;
+      text-align: center;
+
+      & p {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: $color-grey-dark-2;
+        margin-bottom: 1rem;
+      }
+
+      &--auth {
+        font-size: 1.8rem;
+        color: $color-primary;
+        text-decoration: none;
+        font-weight: 700;
+
+        &:hover {
+          text-decoration: underline;
+          color: $color-primary-dark;
+        }
+      }
+    }
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__box {
+    padding: 5rem 10rem;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-around;
+    height: 100vh;
+
+    &-form {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &--button {
+        padding: 1.4rem 8rem !important;
+        margin-bottom: 4rem;
+      }
+    }
+
+    &--mobilelink {
+      display: none;
+
+      @include respond(tab-port) {
+        display: block;
+      }
+    }
+  }
+}
+
+.google-login {
+  color: #444 !important;
+  padding: 0 20px 0 7px !important;
+  box-shadow: none !important;
+  border: 1px solid #ddd !important;
+  font-size: 1.6rem !important;
+}
+
+.login-alt-text {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #aaa;
+  margin: 4rem 0;
+}
+
+.sideline {
+  line-height: 0.01;
+  text-align: center;
+  text-transform: uppercase;
+}
+.sideline span {
+  display: inline-block;
+  position: relative;
+}
+
+.sideline span:before,
+.sideline span:after {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #aaa;
+  width: 5rem;
+}
+
+.sideline span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.sideline span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+.close {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  color: #999 !important;
+  transform: scale(1.5) !important;
+}
+
+.close:hover {
+  color: #888 !important;
+}
