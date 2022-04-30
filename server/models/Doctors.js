@@ -24,6 +24,19 @@ const doctorSchema = mongoose.Schema({
       required: true,
     },
   },
+  booking: [
+    {
+      slot: {
+        type: Date,
+        required: true,
+      },
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+    },
+  ],
   updated: { type: Number, default: Date.now },
   created: { type: Number, default: Date.now },
 });
