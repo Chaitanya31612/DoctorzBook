@@ -108,3 +108,40 @@ module.exports.login = async (req, res) => {
     return res.status(500).json({ message: "Unable to Log in" });
   }
 };
+
+/**
+ * @api {authenticationMiddleWare}
+ * @apiName authenticationMiddleWare
+ * @apiGroup User
+ */
+module.exports.authenticateMiddleware = async (req, res, next) => {
+  let token = req.headers["x-access-token"];
+  if (token) {
+    jwt.verify(token, process.env.TOKEN_SECRET, async function (err, decoded) {
+      if (err) {
+        return res.status(401).json({
+          error: err,
+          success: false,
+          message: "Failed to authenticate token",
+          tokenAutorization: false,
+        });
+      } else {
+        if (decoded.userType == "doctor" || decoded.userType == "user") {
+          req.decoded = decoded;
+          next();
+        } else {
+          return res.status(401).json({
+            success: false,
+            message: "Failed to authenticate token",
+            tokenAutorization: false,
+          });
+        }
+      }
+    });
+  } else {
+    return res.status(403).send({
+      success: false,
+      msg: "No token, authorization denied",
+    });
+  }
+};

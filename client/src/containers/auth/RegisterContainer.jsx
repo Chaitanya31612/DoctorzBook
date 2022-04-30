@@ -53,7 +53,7 @@ const RegisterContainer = () => {
             </label>
           </div>
           <button className="button button--primary login__box-form--button">
-            Sign In
+            Register
           </button>
         </form>
 

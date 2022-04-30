@@ -16,13 +16,14 @@ const AppRouter = () => {
 
   return (
     <TransitionGroup>
-      <CSSTransition key={location.key} classNames='my-node' timeout={3000}>
+      <CSSTransition key={location.key} classNames="my-node" timeout={3000}>
         <Switch location={location}>
-          <Route exact path='/' component={LandingContainer} />
-          <Route exact path='/login' component={LoginContainer} />
-          <Route exact path='/register' component={RegisterContainer} />
-          <Route path='/404' exact component={NotFoundContainer} />
-          <Redirect to='/404' />
+          <Route exact path="/" component={LandingContainer} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/register" component={RegisterContainer} />
+          <Route exact path="/dashboard" component={LandingContainer} />
+          <Route path="/404" exact component={NotFoundContainer} />
+          <Redirect to="/404" />
         </Switch>
       </CSSTransition>
     </TransitionGroup>

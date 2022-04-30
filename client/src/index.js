@@ -10,13 +10,17 @@ import { AppRouter } from "./routers";
 import "./styles/styles.scss";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store/store";
 
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<Preloader />}>
-      <Router>
-        <AppRouter />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <AppRouter />
+        </Router>
+      </Provider>
     </Suspense>
   </React.StrictMode>,
   document.getElementById("root")

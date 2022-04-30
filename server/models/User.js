@@ -9,4 +9,4 @@ const userSchema = mongoose.Schema({
   created: { type: Number, default: Date.now },
 });
 
-module.exports = mongoose.model("Doctor", doctorSchema);
+module.exports = mongoose.model("User", userSchema);

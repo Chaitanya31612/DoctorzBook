@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import authLogo from "../../assets/svgs/auth-logo.svg";
 import { IconButton } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { useRouter } from "../../utils/useRouter";
+import { connect } from "react-redux";
+import { login } from "../../redux/actions/auth";
 
-const LoginContainer = () => {
+const LoginContainer = ({ isAuthenticated, login }) => {
   const router = useRouter();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(email, password);
+  };
+
+  // if (isAuthenticated) {
+  //   router.push("/dashboard");
+  // }
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    login(email, password);
+  };
 
   return (
     <div className="login">
@@ -26,13 +47,19 @@ const LoginContainer = () => {
           <Close />
         </IconButton>
         <h1 className="heading heading--primary heading--big">Sign In</h1>
-        <form action="" className="form login__box-form">
+        <form
+          action=""
+          className="form login__box-form"
+          onSubmit={(e) => onSubmit(e)}
+        >
           <div className="form__group">
             <input
               type="email"
               className="form__input"
               placeholder="Email"
               id="email"
+              onChange={(e) => onChange(e)}
+              name="email"
               required
             />
             <label htmlFor="email" className="form__label">
@@ -45,13 +72,18 @@ const LoginContainer = () => {
               className="form__input"
               placeholder="Password"
               id="password"
+              onChange={(e) => onChange(e)}
+              name="password"
               required
             />
             <label htmlFor="password" className="form__label">
               Password
             </label>
           </div>
-          <button className="button button--primary login__box-form--button">
+          <button
+            onClick={login}
+            className="button button--primary login__box-form--button"
+          >
             Sign In
           </button>
         </form>
@@ -67,4 +99,8 @@ const LoginContainer = () => {
   );
 };
 
-export default LoginContainer;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated || false,
+});
+
+export default connect(mapStateToProps, { login })(LoginContainer);
