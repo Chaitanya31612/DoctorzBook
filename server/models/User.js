@@ -1,13 +1,14 @@
 let mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const doctorchema = mongoose.Schema({
   googleId: { type: String, required: false },
   name: { type: String, required: true, min: 6, max: 255 },
   email: { type: String, required: true, min: 6, max: 255 },
   password: { type: String, required: true, max: 1024, min: 5 },
-  qualification:{ type: String, required: true, max: 1024, min: 5 },
-  fee:{ type:Number, required: true},
+  city: { type: String, required: true, max: 1024, min: 5 },
   
+
+
 
 
   profilePhoto: {
@@ -19,4 +20,4 @@ const userSchema = mongoose.Schema({
   created: { type: Number, default: Date.now },
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Doctor", doctorSchema);
