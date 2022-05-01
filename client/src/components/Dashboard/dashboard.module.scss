@@ -1,0 +1,139 @@
+@import "../../styles/abstracts/variables";
+.dashboard{
+    .dashboard_head{
+        border-bottom: 1px solid rgb(194, 194, 194);
+       h1{
+           font-weight: 300;
+           font-family: "Poppins", sans-serif;
+        }
+        display: flex;
+        justify-content: center;
+        font-size: 1.7rem;
+    }
+    @keyframes underTab {
+        0%   {width:0px;border-top: 1px solid #7178f9;}
+        100% {width: 100%;border-top: 1px solid #7178f9;}
+      }
+    .dashboard_tabs{
+        .dashboard_tabs_ul{
+            list-style-type: none;
+            .dashboard_tabs_li{
+                display: flex;
+                justify-content: center;
+                a{
+                    padding-top: 0.2rem;
+                    font-size: 1.6rem;
+                    text-decoration: none;
+                    color:black;
+                    &:hover{
+                        &::after{
+                            content: "";
+                            display: block;
+                            width: 100%;
+                            border-top: 1px solid #7178f9;
+                            animation: underTab 0.6s ease-in-out;
+                        }
+                    }
+                }
+            }
+            .tabs_select{
+                margin-top: 20px;
+                font-size: 1.8rem;
+                padding:5px;
+                width:100%;
+                background-color: white;
+                border:1px solid #7178f9;
+                border-radius: 10px;
+                outline: 0px;
+            }
+        }
+    }
+    .dashboard_ticket_box_u{
+        margin-top:2rem;
+        &:hover{
+            transform: scale(1.04);
+        }
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        color: white;
+        border:1px solid #7178f9;
+        border-radius: 20px;
+        padding: 10px;
+        background-image: linear-gradient(315deg, #7178f9  0%,  #6dd5ed 74%) ;
+        h1{
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 300;
+            font-family: "Poppins", sans-serif;
+        }
+        .dashboard_ticket_name{
+            h1{
+                display: flex;
+                p{
+                    padding-left: 4px;
+                    color: wheat;
+                }
+            }
+        }
+    }
+    .dashboard_ticket_box_a{
+        margin-top:2rem;
+        &:hover{
+            transform: scale(1.04);
+        }
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        color: white;
+        border:1px solid #60ef60;
+        border-radius: 20px;
+        padding: 10px;
+        background-image: linear-gradient(315deg, #a2d1a2  0%,  #6dd5ed 74%) ;
+        h1{
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 300;
+            font-family: "Poppins", sans-serif;
+        }
+        .dashboard_ticket_name{
+            h1{
+                display: flex;
+                p{
+                    padding-left: 4px;
+                    color: wheat;
+                }
+            }
+        }
+    }
+    .dashboard_ticket_box_c{
+        margin-top:2rem;
+        &:hover{
+            transform: scale(1.04);
+        }
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        color: white;
+        border:1px solid #f14646;
+        border-radius: 20px;
+        padding: 10px;
+        background-color:#e2a2a2 ;
+        background-image: linear-gradient(315deg, #e2a2a2  0%,  #6dd5ed 74%) ;
+        h1{
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 300;
+            font-family: "Poppins", sans-serif;
+        }
+        .dashboard_ticket_name{
+            h1{
+                display: flex;
+                p{
+                    padding-left: 4px;
+                    color: wheat;
+                }
+            }
+        }
+    }
+}
