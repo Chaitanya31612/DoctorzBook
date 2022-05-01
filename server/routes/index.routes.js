@@ -24,6 +24,7 @@ const registerValidation = {
 // Controllers
 const authController = require("../controllers/auth");
 const commonController = require("../controllers/common");
+const bookingController = require("../controllers/booking");
 
 const router = express.Router();
 
@@ -43,5 +44,15 @@ router.post("/register", authController.register);
 router.post("/login", authController.login);
 
 router.get("/getDoctors", commonController.getDoctors);
+
+router.get("/getDoctor/:id", commonController.getDoctor);
+
+router.get("/getBooking/:id", bookingController.getBooking);
+
+router.post(
+  "/bookSlot",
+  authController.authenticateMiddleware,
+  bookingController.bookSlot
+);
 
 module.exports = router;

@@ -30,7 +30,7 @@ const PatientDashboard = ({
         />
       </div>
 
-      <div className="dashboard__container">
+      <div className="dashboard__container ">
         <h1 className="dashboard__heading">Dashboard</h1>
         {/* sort section */}
         <div className="dashboard__sort">

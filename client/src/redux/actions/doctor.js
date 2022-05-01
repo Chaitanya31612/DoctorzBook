@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { GET_DOCTOR, GET_DOCTORS, CLEAR_PROFILE } from "../ActionConstants";
+import {
+  GET_DOCTOR,
+  GET_DOCTORS,
+  CLEAR_PROFILE,
+  GET_BOOKING,
+} from "../ActionConstants";
 
 // Get all doctors
 export const getDoctors = () => async (dispatch) => {

@@ -8,3 +8,6 @@ export const LOGOUT = "LOGOUT";
 export const GET_DOCTOR = "GET_DOCTOR";
 export const GET_DOCTORS = "GET_DOCTORS";
 export const CLEAR_PROFILE = "CLEAR_PROFILE";
+export const SET_CURRENT = "SET_CURRENT";
+export const GET_BOOKING = "GET_BOOKING";
+export const GET_BOOKINGS = "GET_BOOKINGS";

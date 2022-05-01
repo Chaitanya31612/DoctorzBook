@@ -17,3 +17,20 @@ module.exports.getDoctors = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+module.exports.getDoctor = async (req, res) => {
+  try {
+    const doctor = await Doctor.findById(req.params.id);
+
+    if (!doctor) {
+      return res.status(404).json({ msg: "Doctor not found" });
+    }
+    res.json(doctor);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == "ObjectId") {
+      return res.status(400).json({ msg: "Doctor not found" });
+    }
+    res.status(500).send("Server error");
+  }
+};

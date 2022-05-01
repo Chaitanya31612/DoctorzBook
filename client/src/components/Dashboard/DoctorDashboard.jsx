@@ -5,7 +5,7 @@ const DoctorDashboard = () => {
   return (
     <div class="dashboard">
       <div className="dashboard__navbar">
-        <DashboardNavbar links={["Appointments", "/appointments"]} />
+        <DashboardNavbar links={[["Appointments", "/appointments"]]} />
       </div>
     </div>
   );
