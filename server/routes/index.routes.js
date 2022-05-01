@@ -23,6 +23,7 @@ const registerValidation = {
 
 // Controllers
 const authController = require("../controllers/auth");
+const commonController = require("../controllers/common");
 
 const router = express.Router();
 
@@ -30,9 +31,17 @@ router.get("/check", (req, res) => {
   return res.json({ message: "API is working" });
 });
 
+router.get(
+  "/auth",
+  authController.authenticateMiddleware,
+  authController.getLoginDetails
+);
+
 // auth
-router.post("/register", validate(registerValidation), authController.register);
+router.post("/register", authController.register);
 
 router.post("/login", authController.login);
+
+router.get("/getDoctors", commonController.getDoctors);
 
 module.exports = router;

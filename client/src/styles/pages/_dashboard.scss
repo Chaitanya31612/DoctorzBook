@@ -1,0 +1,61 @@
+.dashboard {
+    background-color: white;
+    font-size: 1rem;
+    &__navbar {
+        box-shadow: 2px 1px rgba(0, 0, 0, 0.3);
+        margin-bottom: 3rem;
+    }
+
+    &__heading {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    &__sort {
+        display: flex;
+        margin: 2rem 20rem;
+        font-size: 1.8rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__cards {
+        margin: 5rem 20rem;
+    }
+
+    &__card {
+        font-size: 1.3rem;
+        display: grid;
+        grid-template-columns: 6fr 2fr;
+        align-items: center;
+        grid-gap: 2rem;
+        // display:flex;
+        padding: 2rem;
+        padding-left: 5rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        background-color: #f4f4f4;
+        border: #ccc solid 1px;
+        
+
+        &--contents {
+            margin-left: 5rem;
+        }
+        
+        &--bookbtn {
+            display: inline-block;
+            background-color: $color-primary-light;
+            color: #fff;
+            padding: 1rem 1.7rem;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.4rem;
+            border: none;
+            cursor: pointer;
+            margin-right: 4rem;
+            transition: opacity 0.2s ease-in;
+            outline: none;
+        }
+    }
+
+}

@@ -1,4 +1,12 @@
 .form {
+  &__radiogroup {
+    display: flex;
+
+    &--first {
+      margin-right: 10rem;
+    }
+  }
+
   &__group {
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -54,13 +62,14 @@
     margin-top: 0.7rem;
     display: block;
     transition: all 0.3s;
-    color: $color-grey-light-1;
+    // color: $color-grey-light-1;
+    color: black;
     font-weight: 300;
   }
 
   // + is adjacent sibling selector, and this is written because the order of html matters
   &__input:placeholder-shown + &__label {
-    opacity: 0;
+    // opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
   }

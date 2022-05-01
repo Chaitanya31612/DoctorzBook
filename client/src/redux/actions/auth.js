@@ -18,7 +18,7 @@ export const loadUser = () => async (dispatch) => {
 
   try {
     const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/auth`);
-
+    // console.log("data", res);
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -31,44 +31,39 @@ export const loadUser = () => async (dispatch) => {
 };
 
 // register
-export const register =
-  ({ name, email, password }) =>
-  async (dispatch) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/api/register`,
-        {
-          name,
-          email,
-          password,
-        },
-        config
-      );
-
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data,
-      });
-
-      dispatch(loadUser());
-    } catch (err) {
-      const errors = err.response.data.errors;
-
-      if (errors) {
-        errors.forEach((error) => console.log(error));
-      }
-
-      dispatch({
-        type: REGISTER_FAIL,
-      });
-    }
+export const register = (formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
+
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/api/register`,
+      formData,
+      config
+    );
+
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data,
+    });
+
+    dispatch(loadUser());
+  } catch (err) {
+    // const errors = err.response.data.errors;
+
+    // if (errors) {
+    //   errors.forEach((error) => console.log(error));
+    // }
+
+    console.log(err);
+    dispatch({
+      type: REGISTER_FAIL,
+    });
+  }
+};
 
 // login
 export const login = (email, password) => async (dispatch) => {
@@ -89,7 +84,7 @@ export const login = (email, password) => async (dispatch) => {
       config
     );
 
-    console.log(res);
+    // console.log(res);
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -98,12 +93,6 @@ export const login = (email, password) => async (dispatch) => {
 
     // dispatch(loadUser());
   } catch (err) {
-    // const errors = err.response.data.errors;
-
-    // if (errors) {
-    //   errors.forEach((error) => console.log(error));
-    // }
-
     dispatch({
       type: LOGIN_FAIL,
     });

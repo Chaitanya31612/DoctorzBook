@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const utility = require("../utils/utility");
 let jwt = require("jsonwebtoken");
+const Doctor = require("../models/Doctors");
 
 /**
  * @api {post} /api/register create
@@ -27,6 +28,9 @@ module.exports.register = async (req, res) => {
       return res.status(400).json({ message: "Email missing." });
     }
 
+    const userData = {};
+    const doctorData = {};
+
     User.findOne({ email: email.toLowerCase() }, async (error, response) => {
       if (error) {
         return res
@@ -39,25 +43,59 @@ module.exports.register = async (req, res) => {
         });
       } else {
         utility.hash(req.body.password, (error, hash) => {
-          req.body.password = hash;
-          req.body.email = req.body.email.toLowerCase();
-          User.create(req.body, (error, response) => {
-            if (error) {
-              console.log("user not registered", error);
-              return res
-                .status(400)
-                .json({ message: "error occurred", error: error });
-            } else if (response) {
-              return res.status(200).json({
-                message: "user created successfully",
-                response: response,
-              });
-            } else {
-              return res
-                .status(400)
-                .json({ message: "error occurred", error: error });
-            }
-          });
+          userData.password = hash;
+          userData.email = email.toLowerCase();
+          userData.name = req.body.name;
+          if (req.body.userType == "user") {
+            userData.userType = "user";
+          } else {
+            userData.userType = "doctor";
+            doctorData.doctorName = req.body.name;
+            doctorData.hospitalName = req.body.hospitalName;
+            doctorData.hospitalAddress = req.body.hospitalAddress;
+            doctorData.specialization = req.body.specialization;
+            doctorData.city = req.body.city;
+            doctorData.state = req.body.state;
+            doctorData.country = req.body.country;
+            doctorData.location = {
+              type: "Point",
+              coordinates: req.body.location,
+            };
+          }
+
+          try {
+            User.create(userData, async (error, response) => {
+              if (error) {
+                console.log("user not registered", error);
+                return res
+                  .status(400)
+                  .json({ message: "error occurred", error: error });
+              } else if (response) {
+                if (req.body.userType == "doctor") {
+                  doctorData.user_id = response._id;
+                  let doctorsRecord = await Doctor.create(doctorData);
+                  await doctorsRecord.save();
+                }
+                let token = utility.jwtToken({
+                  id: response._id,
+                  email: response.email,
+                  userType: response.userType,
+                });
+                return res.status(200).json({
+                  message: "user created successfully",
+                  token: token,
+                  user: response,
+                });
+              } else {
+                return res
+                  .status(400)
+                  .json({ message: "error occurred", error: error });
+              }
+            });
+          } catch (e) {
+            console.log(err);
+            return res.status(500).json({ message: "Unable to register" });
+          }
         });
       }
     });
@@ -143,5 +181,20 @@ module.exports.authenticateMiddleware = async (req, res, next) => {
       success: false,
       msg: "No token, authorization denied",
     });
+  }
+};
+
+/**
+ * /api/auth
+ */
+module.exports.getLoginDetails = async (req, res) => {
+  try {
+    console.log(req.decoded);
+    const user = await User.findById(req.decoded.id).select("-password");
+    console.log("user", user);
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send("Server error");
   }
 };

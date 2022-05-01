@@ -22,7 +22,7 @@ const LoginContainer = ({ isAuthenticated, login }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/register" />;
+    return <Redirect to="/dashboard" />;
   }
 
   const onSubmit = async (e) => {

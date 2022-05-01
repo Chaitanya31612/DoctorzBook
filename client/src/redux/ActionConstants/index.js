@@ -5,3 +5,6 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
+export const GET_DOCTOR = "GET_DOCTOR";
+export const GET_DOCTORS = "GET_DOCTORS";
+export const CLEAR_PROFILE = "CLEAR_PROFILE";
