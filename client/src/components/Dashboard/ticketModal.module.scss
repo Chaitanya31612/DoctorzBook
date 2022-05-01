@@ -1,0 +1,72 @@
+@import "../../styles/abstracts/variables";
+.ticketModal{
+    width:80%;
+    height:80%;
+    padding:20px;
+    top:10%;
+    left:10%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    overflow-y: scroll;
+    .ticketModal_heading{
+        h1{
+            font-size: 2rem;
+            font-weight: 500;
+            font-family: "Poppins", sans-serif;
+        }
+        border-bottom: 1px solid rgb(210, 199, 199);
+    }
+    .ticketModal_desc{
+        h1:nth-child(1){
+            padding-top:30px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-family: "Poppins", sans-serif;
+            border-bottom: 1px solid #7178f9;
+            width:fit-content
+        }
+        h1:nth-child(2){
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 20px;
+            padding:10px;
+            margin-top:20px;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+    }
+    .ticketModal_pres{
+        h1:nth-child(1){
+            padding-top:30px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-family: "Poppins", sans-serif;
+            border-bottom: 1px solid #7178f9;
+            width:fit-content
+        }
+        textarea{
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            width:100%;
+            outline: 0px;
+            border: 1px solid #7178f9;
+            border-radius: 20px;
+            font-weight: 300;
+            padding: 10px;
+            font-family: "Poppins", sans-serif;
+        }
+        button{
+            margin-top: 10px;
+            background-color: #7178f9;
+            color: white;
+            padding: 6px;
+            font-family: "Poppins", sans-serif;
+            border: 0px;
+            border-radius: 20px;
+            font-size: 1.6rem;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
