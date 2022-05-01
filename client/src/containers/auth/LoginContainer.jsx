@@ -6,6 +6,7 @@ import { Close } from "@material-ui/icons";
 import { useRouter } from "../../utils/useRouter";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/auth";
+import { Redirect } from "react-router-dom";
 
 const LoginContainer = ({ isAuthenticated, login }) => {
   const router = useRouter();
@@ -20,9 +21,9 @@ const LoginContainer = ({ isAuthenticated, login }) => {
     console.log(email, password);
   };
 
-  // if (isAuthenticated) {
-  //   router.push("/dashboard");
-  // }
+  if (isAuthenticated) {
+    return <Redirect to="/register" />;
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
