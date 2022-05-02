@@ -14,7 +14,7 @@ const DashboardContainer = ({ user }) => {
         keywords={metaData.home.keywords}
       />
       <div className="container container--bg">
-        {user && user.userType == "doctor" ? (
+        {user && user.userType === "doctor" ? (
           <DoctorDashboard />
         ) : (
           <PatientDashboard />

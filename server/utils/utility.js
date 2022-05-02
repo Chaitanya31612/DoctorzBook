@@ -21,3 +21,7 @@ module.exports.check = (password, hash, callback) => {
     callback(error, check);
   });
 };
+
+module.exports.hash = (date, start, end) => {
+  return date + start + end;
+};

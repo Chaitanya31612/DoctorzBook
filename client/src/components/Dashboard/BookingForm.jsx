@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import swal from "sweetalert";
 import { getBooking, bookSlot } from "../../redux/actions/booking";
+import { hash } from "../../utils/utility";
 
 const BookingForm = ({
   doctor,
-  bookingTimes,
   bookingsbyId,
   current,
   getBooking,
@@ -18,35 +19,60 @@ const BookingForm = ({
 
   const [availableId, setAvailableId] = useState();
 
-  let available = [...bookingTimes];
+  const bookingTimes = [
+    [10, 11, true],
+    [11, 12, true],
+    [12, 13, true],
+    [14, 15, true],
+    [15, 16, true],
+    [16, 17, true],
+    [17, 18, true],
+  ];
 
-  for (let i = 0; i < available.length; i++) {
-    let find = bookingsbyId.find((booking) => {
+  const [available, setAvailable] = useState(bookingTimes);
+  // console.log(available);
+
+  console.log("bookingsbyId", bookingsbyId);
+
+  const [bookingLoading, setBookingLoading] = useState(true);
+
+  useEffect(() => {
+    for (let i = 0; i < available.length; i++) {
       if (
-        booking.bookingDate === current.dateformat &&
-        booking.start == available[i][0] &&
-        booking.end == available[i][1]
+        bookingsbyId &&
+        bookingsbyId.includes(
+          hash(current.dateformat, available[i][0], available[i][1])
+        )
       ) {
-        return true;
+        available[i][2] = false;
+      } else {
+        available[i][2] = true;
       }
-    });
-    if (find) {
-      available[i][2] = false;
     }
-  }
-
-  console.log(available);
+    console.log("heree change", available);
+    const newAvailable = [...available];
+    setAvailable(newAvailable);
+    setBookingLoading(false);
+    // console.log("after", available, bookingTimes);
+  }, [bookingsbyId, bookSlot, current, bookingLoading]);
 
   const onChange = (e) => {
     const selectedIndex = e.target.options.selectedIndex;
     const id = e.target.options[selectedIndex].getAttribute("data-key");
     setAvailableId(id);
-    console.log(e.target.options[selectedIndex].getAttribute("data-key"));
+    // console.log(e.target.options[selectedIndex].getAttribute("data-key"));
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
+    if (!current.dateSelected) {
+      swal({
+        title: "Please select a date",
+        icon: "warning",
+      });
+      return;
+    }
     bookSlot(
       doctor._id,
       current.dateformat,
@@ -68,22 +94,24 @@ const BookingForm = ({
             onChange={(e) => onChange(e)}
           >
             <option>* Select Slot</option>
-            {available.map((slot, index) => (
-              <option
-                key={index}
-                data-key={index}
-                value={`${slot[0]}:00 - ${slot[1]}:00`}
-                disabled={
-                  !slot[2] ||
-                  (slot.start <= time && date === current.date) ||
-                  date > current.date ||
-                  month > current.month ||
-                  year > current.year
-                }
-              >
-                {slot[0]}:00 - {slot[1]}:00
-              </option>
-            ))}
+            {!bookingLoading &&
+              bookingsbyId &&
+              available.map((slot, index) => (
+                <option
+                  key={index}
+                  data-key={index}
+                  value={`${slot[0]}:00 - ${slot[1]}:00`}
+                  disabled={
+                    !slot[2] ||
+                    (slot[0] <= time && date === current.date) ||
+                    date > current.date ||
+                    month > current.month ||
+                    year > current.year
+                  }
+                >
+                  {slot[0]}:00 - {slot[1]}:00
+                </option>
+              ))}
           </select>
           <button type="submit" className="dashboard__card--bookbtn">
             Book Appointment

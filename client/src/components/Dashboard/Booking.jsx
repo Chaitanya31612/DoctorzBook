@@ -16,17 +16,7 @@ const Booking = ({
   useEffect(() => {
     getDoctor(match.params.id);
     getBooking(match.params.id);
-  }, [getDoctor, getBooking]);
-
-  const bookingTimes = [
-    [10, 11, true],
-    [11, 12, true],
-    [12, 13, true],
-    [14, 15, true],
-    [15, 16, true],
-    [16, 17, true],
-    [17, 18, true],
-  ];
+  }, [getDoctor, getBooking, match.params.id]);
 
   return (
     <div class="dashboard booking">
@@ -56,7 +46,7 @@ const Booking = ({
             {!loading && (
               <BookingForm
                 doctorSelected={doctorSelected}
-                bookingTimes={bookingTimes}
+                // bookingTimes={bookingTimes}
               />
             )}
           </div>

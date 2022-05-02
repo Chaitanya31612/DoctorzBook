@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
     case GET_BOOKING:
       return {
         ...state,
-        bookingsbyId: payload,
+        bookingsbyId: [...state.bookingsbyId, ...payload],
         loading: false,
       };
     case GET_BOOKINGS:

@@ -110,7 +110,7 @@ const RegisterContainer = ({ isAuthenticated, register }) => {
                 value="doctor"
                 onChange={onRadioChange}
                 name="userType"
-                checked={radioOption == "doctor"}
+                checked={radioOption === "doctor"}
                 required
               />
               {"Doctor"}

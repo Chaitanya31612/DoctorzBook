@@ -11,7 +11,7 @@ const bookingSchema = mongoose.Schema({
     ref: "Doctor",
     required: true,
   },
-  bookingDate: { type: Date, required: true },
+  bookingDate: { type: String, required: true },
   start: { type: Number, required: true },
   end: { type: Number, required: true },
   updated: { type: Number, default: Date.now },

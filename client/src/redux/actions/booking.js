@@ -1,6 +1,10 @@
 import axios from "axios";
+import swal from "sweetalert";
 
 import { CLEAR_PROFILE, GET_BOOKING } from "../ActionConstants";
+import { createHashHistory } from "history";
+
+const history = createHashHistory();
 
 // get booking for a doctor
 export const getBooking = (id) => async (dispatch) => {
@@ -39,6 +43,16 @@ export const bookSlot =
         },
         config
       );
+      console.log(res);
+
+      swal({
+        title: "Booking Successful!",
+        text: "Have a great day ahead.",
+        icon: "success",
+        button: "OK",
+      }).then((clicked) => {
+        window.location = "/dashboard";
+      });
 
       dispatch({
         type: GET_BOOKING,
@@ -47,5 +61,12 @@ export const bookSlot =
     } catch (err) {
       console.log(err);
       dispatch({ type: CLEAR_PROFILE });
+      swal({
+        title: "Slot Already Booked",
+        text: "Please find another suitable slot as this was booked while use were booking appointment.",
+        icon: "warning",
+      }).then((clicked) => {
+        window.location = "";
+      });
     }
   };

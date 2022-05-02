@@ -14,9 +14,17 @@ module.exports.getBooking = async (req, res) => {
       doctor_id: new ObjectID(req.params.id),
     }).select("-user_id -doctor_id -updated -created");
     if (!booking) {
-      return res.json([]);
+      return res.json();
     }
-    res.json(booking);
+
+    bookHashs = [];
+    booking.forEach((booking) => {
+      bookHashs.push(
+        utility.hash(booking.bookingDate, booking.start, booking.end)
+      );
+    });
+
+    res.json(bookHashs);
   } catch (err) {
     console.error(err.message);
     if (err.kind == "ObjectId") {
@@ -25,6 +33,25 @@ module.exports.getBooking = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+/* original retrieval */
+// module.exports.getBooking = async (req, res) => {
+//   try {
+//     const booking = await Booking.find({
+//       doctor_id: new ObjectID(req.params.id),
+//     }).select("-user_id -doctor_id -updated -created");
+//     if (!booking) {
+//       return res.json();
+//     }
+//     res.json(booking);
+//   } catch (err) {
+//     console.error(err.message);
+//     if (err.kind == "ObjectId") {
+//       return res.status(400).json({ msg: "Booking not found" });
+//     }
+//     res.status(500).send("Server error");
+//   }
+// };
 
 /**
  * /api/bookSlot
@@ -39,7 +66,9 @@ module.exports.bookSlot = async (req, res) => {
       end: req.body.end,
     });
     if (booking) {
-      return res.status(400).json({ msg: "Slot already booked" });
+      return res
+        .status(400)
+        .json({ status: false, msg: "Slot already booked" });
     }
 
     const newBooking = new Booking({
@@ -50,10 +79,10 @@ module.exports.bookSlot = async (req, res) => {
       end: req.body.end,
     });
     const bookingData = await newBooking.save();
-    res.json(bookingData);
-    console.log(bookingData);
+    console.log([bookingData]);
+    res.json([bookingData]);
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     res.status(500).send("Server error");
   }
 };

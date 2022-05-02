@@ -84,5 +84,4 @@ const DashboardNavbar = ({ links, logout }) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
 export default connect(null, { logout })(DashboardNavbar);

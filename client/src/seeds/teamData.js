@@ -1,5 +1,5 @@
 import img1 from "../assets/images/img_avatar.png";
-import img2 from "../assets/images/img_avatar-2.png";
+// import img2 from "../assets/images/img_avatar-2.png";
 
 const team = [
   {
