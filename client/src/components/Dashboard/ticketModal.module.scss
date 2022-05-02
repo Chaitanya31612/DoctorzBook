@@ -69,4 +69,47 @@
             padding-right: 20px;
         }
     }
+    .ticketModal_status{
+        width:100%;
+        display: flex;
+        .ticketModalSelect{
+            cursor: pointer;
+            width:50%;
+            outline: 0px;
+            border:1px solid #7178f9;
+            border-radius: 20px;
+            padding:5px;
+            font-size: 1.4rem;
+        }
+        .ticketModalClose{
+            width:50%;
+            .ticketModal_closeButton{
+                float: right;
+                margin-top:8px;
+                background-color: white;
+                border-radius: 10px;
+        
+                border:1px solid #7178f9;
+                padding: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+                cursor:pointer;
+            }   
+        }
+    }
+    .ticket_info{
+        border:1px solid rgb(193, 192, 192);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 30px;
+        h1{
+            display: flex;
+            font-family: "Poppins", sans-serif;
+            font-size:1.5rem;
+            font-weight: 300;
+            p{
+                margin-left:1rem;
+            }
+        }
+    }
 }

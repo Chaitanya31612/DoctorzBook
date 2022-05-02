@@ -125,7 +125,7 @@ const Dashboard = () =>{
     }
     return(
         <>
-        <div className="center-content">
+        <div className={styles.dashboard_center}>
             <Navbar/>
             <div className={styles.dashboard}>
                 <div className={styles.dashboard_head}>
@@ -221,7 +221,7 @@ const Dashboard = () =>{
                         </Row>
                     </Container>                       
                 </div>
-                {ticketModal && <TicketModal ticket={ticketModal} status="upcoming"/>}
+                {ticketModal && <TicketModal close={closeTicketModal} ticket={ticketModal} status="upcoming"/>}
             </div>
             {navbar && <a href="#top" className="scroll-top"><ChevronDoubleUpIcon className="scroll-top--icon" /></a>}
         </div>
