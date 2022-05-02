@@ -7,6 +7,7 @@ import { loadUser } from "../redux/actions/auth";
 import { store } from "../redux/store/store";
 import setAuthToken from "../utils/setAuthToken";
 import PrivateRoute from "./PrivateRoute";
+import AppointmentContainer from "../containers/AppointmentContainer";
 
 const LandingContainer = lazy(() => import("../containers/LandingContainer"));
 const LoginContainer = lazy(() => import("../containers/auth/LoginContainer"));
@@ -41,6 +42,11 @@ const AppRouter = () => {
             component={DashboardContainer}
           />
           <PrivateRoute exact path="/doctor/:id" component={Booking} />
+          <PrivateRoute
+            exact
+            path="/appointments"
+            component={AppointmentContainer}
+          />
           <Route path="/404" exact component={NotFoundContainer} />
           <Redirect to="/404" />
         </Switch>

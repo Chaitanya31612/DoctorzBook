@@ -8,8 +8,30 @@ const Doctor = require("../models/Doctors");
  */
 module.exports.getDoctors = async (req, res) => {
   try {
-    console.log(req.decoded);
     const doctors = await Doctor.find();
+    console.log("doctors", doctors);
+    res.status(200).json(doctors);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send("Server error");
+  }
+};
+
+module.exports.getDoctorsSorted = async (req, res) => {
+  try {
+    const { long, lat } = req.body;
+    console.log(long, lat);
+
+    const doctors = await Doctor.find({
+      location: {
+        $near: {
+          $geometry: {
+            type: "Point",
+            coordinates: [long, lat],
+          },
+        },
+      },
+    });
     console.log("doctors", doctors);
     res.status(200).json(doctors);
   } catch (err) {

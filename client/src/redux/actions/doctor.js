@@ -25,6 +25,32 @@ export const getDoctors = () => async (dispatch) => {
   }
 };
 
+// getDoctorsSorted
+export const getDoctorsSorted = (long, lat) => async (dispatch) => {
+  dispatch({ type: CLEAR_PROFILE });
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/api/getDoctorsSorted`,
+      { long, lat },
+      config
+    );
+
+    dispatch({
+      type: GET_DOCTORS,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: CLEAR_PROFILE });
+  }
+};
+
 // Get a doctor selected
 export const getDoctor = (id) => async (dispatch) => {
   try {

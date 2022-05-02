@@ -26,11 +26,11 @@
     &__card {
         font-size: 1.3rem;
         display: grid;
-        grid-template-columns: 6fr 2fr;
+        grid-template-columns: 2fr 6fr 2fr;
         align-items: center;
         grid-gap: 2rem;
         // display:flex;
-        padding: 2rem;
+        padding: 4rem 2rem;
         padding-left: 5rem;
         line-height: 1.8;
         margin-bottom: 1rem;
@@ -55,6 +55,22 @@
             margin-right: 4rem;
             transition: opacity 0.2s ease-in;
             outline: none;
+            font-weight: 600;
+        }
+
+        &--label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $color-grey-dark-2;
+            margin-right: 2rem;
+        }
+
+        &--title {
+            font-size: 2rem;
+        }
+
+        &--item {
+            font-size: 1.5rem;
         }
     }
 

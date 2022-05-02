@@ -45,6 +45,8 @@ router.post("/login", authController.login);
 
 router.get("/getDoctors", commonController.getDoctors);
 
+router.post("/getDoctorsSorted", commonController.getDoctorsSorted);
+
 router.get("/getDoctor/:id", commonController.getDoctor);
 
 router.get("/getBooking/:id", bookingController.getBooking);

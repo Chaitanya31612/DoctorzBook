@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import authLogo from "../../assets/svgs/auth-logo.svg";
 import { IconButton } from "@material-ui/core";
@@ -26,6 +26,18 @@ const RegisterContainer = ({ isAuthenticated, register }) => {
     location: [],
   });
 
+  const [lat, setLat] = useState();
+  const [long, setLong] = useState();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
+    });
+  }, [lat, long]);
+
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
@@ -35,6 +47,7 @@ const RegisterContainer = ({ isAuthenticated, register }) => {
     setFormData({
       ...formData,
       userType: e.target.value,
+      location: [long, lat],
     });
   };
 

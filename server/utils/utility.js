@@ -22,6 +22,6 @@ module.exports.check = (password, hash, callback) => {
   });
 };
 
-module.exports.hash = (date, start, end) => {
+module.exports.hashDate = (date, start, end) => {
   return date + start + end;
 };

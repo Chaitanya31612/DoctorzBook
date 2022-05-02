@@ -6,6 +6,17 @@ const Booking = require("../models/Booking");
 const { ObjectID } = require("mongodb");
 
 /**
+ * /api/getBookings
+ */
+module.exports.getBookings = async (req, res) => {
+  try {
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server error");
+  }
+};
+
+/**
  * /api/getBooking/:id
  */
 module.exports.getBooking = async (req, res) => {
@@ -20,7 +31,7 @@ module.exports.getBooking = async (req, res) => {
     bookHashs = [];
     booking.forEach((booking) => {
       bookHashs.push(
-        utility.hash(booking.bookingDate, booking.start, booking.end)
+        utility.hashDate(booking.bookingDate, booking.start, booking.end)
       );
     });
 
