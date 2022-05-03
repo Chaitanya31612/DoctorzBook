@@ -5,10 +5,10 @@ import teamData from "../../seeds/teamData";
 
 function Team() {
   return (
-    <div className={styles.Team} id='home_team'>
+    <div className={styles.Team} id="home_team">
       <br />
       <h1 className={"heading heading--primary center-content"}>
-        <span className='highlight'>Our Team</span>
+        <span className="highlight">Our Team</span>
       </h1>
       <br />
       <br />

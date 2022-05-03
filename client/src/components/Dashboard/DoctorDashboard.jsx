@@ -1,10 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getDoctorByUserid } from "../../redux/actions/doctor";
 import Preloader from "../Preloader/Preloader";
 import Hospital from "../../assets/svgs/dashboard-hospital.svg";
 
-const DoctorDashboard = ({ loading, doctor, getDoctorByUserid }) => {
+const DoctorDashboard = ({
+  doctors: { loading, doctorSelected: doctor },
+  getDoctorByUserid,
+}) => {
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    window.location.href = "";
+    setChecked(!checked);
+  };
+
   useEffect(() => {
     getDoctorByUserid();
   }, [getDoctorByUserid]);
@@ -13,62 +23,78 @@ const DoctorDashboard = ({ loading, doctor, getDoctorByUserid }) => {
 
   return (
     <>
-      {loading || doctor == null ? (
+      {loading ? (
         <Preloader />
       ) : (
         <>
           <div className="appointments--header" style={{ marginTop: "5rem" }}>
             Dashboard
           </div>
-          <div className="dashboard__cards">
-            <div className="dashboard__card dashboard__card--profile">
-              <img className="round-img" src={Hospital} alt="" />
-              <div className="dashboard__card--contents">
-                <h1 className="dashboard__card--title">
-                  <span className="dashboard__card--label">
-                    Hospital Name -{"  "}
-                  </span>
-                  {doctor.hospitalName}
-                </h1>
-                <h2 className="dashboard__card--item">
-                  <span className="dashboard__card--label">
-                    Doctor Name -{"  "}
-                  </span>
-                  {doctor.doctorName}
-                </h2>
-                <div className="dashboard__card--item">
-                  <span className="dashboard__card--label">
-                    Specialization -{"  "}
-                  </span>
-                  {doctor.specialization}
-                </div>
-                <div className="dashboard__card--item">
-                  <div className="dashboard__card--address-item">
+          <div className="dashboard__sort">
+            <div></div>
+            <label>
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={handleChange}
+              />
+              {"  "}
+              View Profile
+            </label>
+          </div>
+          {doctor ? (
+            <div className="dashboard__cards">
+              <div className="dashboard__card dashboard__card--profile">
+                <img className="round-img" src={Hospital} alt="" />
+                <div className="dashboard__card--contents">
+                  <h1 className="dashboard__card--title">
                     <span className="dashboard__card--label">
-                      Hospital Address -{"  "}
+                      Hospital Name -{"  "}
                     </span>
-                    {doctor.hospitalAddress}
-                  </div>
-                  <div className="dashboard__card--item">
-                    <span className="dashboard__card--label">City -{"  "}</span>
-                    {doctor.city}
-                  </div>
+                    {doctor.hospitalName}
+                  </h1>
+                  <h2 className="dashboard__card--item">
+                    <span className="dashboard__card--label">
+                      Doctor Name -{"  "}
+                    </span>
+                    {doctor.doctorName}
+                  </h2>
                   <div className="dashboard__card--item">
                     <span className="dashboard__card--label">
-                      State -{"  "}
+                      Specialization -{"  "}
                     </span>
-                    {doctor.state}
+                    {doctor.specialization}
                   </div>
                   <div className="dashboard__card--item">
-                    <span className="dashboard__card--label">
-                      Country -{"  "}
-                    </span>
-                    {doctor.country}
+                    <div className="dashboard__card--address-item">
+                      <span className="dashboard__card--label">
+                        Hospital Address -{"  "}
+                      </span>
+                      {doctor.hospitalAddress}
+                    </div>
+                    <div className="dashboard__card--item">
+                      <span className="dashboard__card--label">
+                        City -{"  "}
+                      </span>
+                      {doctor.city}
+                    </div>
+                    <div className="dashboard__card--item">
+                      <span className="dashboard__card--label">
+                        State -{"  "}
+                      </span>
+                      {doctor.state}
+                    </div>
+                    <div className="dashboard__card--item">
+                      <span className="dashboard__card--label">
+                        Country -{"  "}
+                      </span>
+                      {doctor.country}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : null}
         </>
       )}
     </>
@@ -76,8 +102,7 @@ const DoctorDashboard = ({ loading, doctor, getDoctorByUserid }) => {
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.auth.loading,
-  doctor: state.doctors.doctorSelected,
+  doctors: state.doctors,
 });
 
 export default connect(mapStateToProps, { getDoctorByUserid })(DoctorDashboard);

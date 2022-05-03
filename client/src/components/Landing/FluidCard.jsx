@@ -317,8 +317,8 @@ function FluidCard(props) {
             <a
               className={`${styles.socialicon} ${styles.github}`}
               href={githubLink}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <UseAnimations animation={github} size={42} />
             </a>
@@ -326,8 +326,8 @@ function FluidCard(props) {
             <a
               className={`${styles.socialicon} ${styles.linkedin}`}
               href={linkedinLink}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <UseAnimations
                 animation={linkedin}
