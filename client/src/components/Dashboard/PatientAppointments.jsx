@@ -11,7 +11,7 @@ const PatientAppointments = ({ appointments, getBookings }) => {
     let todaydate = today.getDate();
     console.log(date, todaydate, start, end, date === todaydate);
 
-    if (date < todaydate) {
+    if (date < todaydate || (date === todaydate && time >= end)) {
       return { status: "Attended", clr: "green" };
     } else if (date === todaydate && time >= start && time < end) {
       return { status: "In Progress", clr: "blue" };
@@ -33,7 +33,7 @@ const PatientAppointments = ({ appointments, getBookings }) => {
             <th>Doctor Name</th>
             <th>Hospital Address</th>
             <th>City</th>
-            <th>Date</th>
+            <th>Date(MM/DD/YY)</th>
             <th>Timings</th>
             <th>Status</th>
           </tr>

@@ -15,7 +15,7 @@ const DoctorAppointments = ({ appointments, getBookings }) => {
             <th>S.No</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Slot Date</th>
+            <th>Slot Date(MM/DD/YY)</th>
             <th>Timings</th>
           </tr>
         </thead>
