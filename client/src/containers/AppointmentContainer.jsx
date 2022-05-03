@@ -23,27 +23,19 @@ const AppointmentContainer = ({ loading, user, appointments, getBookings }) => {
         description={metaData.home.description}
         keywords={metaData.home.keywords}
       />
-      <div className="container container--bg">
+      <>
         {loading || user == null ? (
           <Preloader />
         ) : (
-          <div class="dashboard">
-            <div className="dashboard__navbar">
-              <DashboardNavbar
-                links={[
-                  ["Doctors", "/dashboard"],
-                  ["Appointments", "/appointments"],
-                ]}
-              />
-            </div>
+          <>
             {user && user.userType === "doctor" ? (
               <DoctorAppointments />
             ) : (
               <PatientAppointments />
             )}
-          </div>
+          </>
         )}
-      </div>
+      </>
     </>
   );
 };

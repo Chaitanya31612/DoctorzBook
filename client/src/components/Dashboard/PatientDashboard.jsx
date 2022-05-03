@@ -44,6 +44,16 @@ const PatientDashboard = ({
 
   return (
     <div className="dashboard__container ">
+      <div class="dashboard">
+        <div className="dashboard__navbar">
+          <DashboardNavbar
+            links={[
+              ["Doctors", "/dashboard"],
+              ["Appointments", "/appointments"],
+            ]}
+          />
+        </div>
+      </div>
       <h1 className="dashboard__heading">Dashboard</h1>
       {/* sort section */}
       <div className="dashboard__sort">

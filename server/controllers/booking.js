@@ -151,3 +151,26 @@ module.exports.bookSlot = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+// cancel booking
+module.exports.cancelBooking = async (req, res) => {
+  try {
+    console.log("landed here");
+    const check = {
+      user_id: req.decoded.id,
+      bookingDate: req.body.bookingDate,
+      start: req.body.start,
+      end: req.body.end,
+    };
+
+    // delete booking by check
+    const booking = await Booking.findOneAndDelete(check);
+    if (!booking) {
+      return res.status(400).json({ status: false, msg: "Booking not found" });
+    }
+    res.json({ status: true, msg: "Booking cancelled" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server error");
+  }
+};

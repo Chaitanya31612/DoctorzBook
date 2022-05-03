@@ -69,4 +69,10 @@ router.post(
   bookingController.bookSlot
 );
 
+router.post(
+  "/cancelBooking",
+  authController.authenticateMiddleware,
+  bookingController.cancelBooking
+);
+
 module.exports = router;

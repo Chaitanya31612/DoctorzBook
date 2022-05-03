@@ -15,23 +15,12 @@ const DashboardContainer = ({ user }) => {
         description={metaData.home.description}
         keywords={metaData.home.keywords}
       />
-      <div className="container container--bg">
-        <div class="dashboard">
-          <div className="dashboard__navbar">
-            <DashboardNavbar
-              links={[
-                ["Doctors", "/dashboard"],
-                ["Appointments", "/appointments"],
-              ]}
-            />
-          </div>
-          {user && user.userType === "doctor" ? (
-            <DoctorDashboard />
-          ) : (
-            <PatientDashboard />
-          )}
-        </div>
-      </div>
+
+      {user && user.userType === "doctor" ? (
+        <DoctorDashboard />
+      ) : (
+        <PatientDashboard />
+      )}
     </>
   );
 };
