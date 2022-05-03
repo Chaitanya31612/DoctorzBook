@@ -20,7 +20,7 @@ const Navbar = () => {
   return mobileview ? (
     <div class="navigation">
       <Link to="/" style={{ textDecoration: "none" }}>
-        <h1 className="navigation__logo gradient-text">Social Site</h1>
+        <h1 className="navigation__logo gradient-text">DoctorzBook</h1>
       </Link>
       <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
       <label for="navi-toggle" class="navigation__button">
@@ -105,7 +105,7 @@ const Navbar = () => {
           Log In
         </Link>
         <Link to="/register" className="button button--secondary">
-          Try it for free
+          Register
         </Link>
       </div>
     </div>

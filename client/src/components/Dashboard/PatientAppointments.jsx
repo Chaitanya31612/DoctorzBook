@@ -9,7 +9,7 @@ const PatientAppointments = ({ appointments, getBookings }) => {
     let today = new Date();
     let time = today.getHours();
     let todaydate = today.getDate();
-    console.log(date, todaydate, start, end, date === todaydate);
+    console.log(time, date, todaydate, start, end, date === todaydate);
 
     if (date < todaydate || (date === todaydate && time >= end)) {
       return { status: "Attended", clr: "green" };
