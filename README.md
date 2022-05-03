@@ -13,7 +13,6 @@ https://user-images.githubusercontent.com/54992097/166520275-d426cb89-1044-4c16-
 
 # Photos
 
-
 ![Screenshot (134)](https://user-images.githubusercontent.com/54992097/166520595-da7587c6-6368-4f02-9e02-940388d03758.png)
 ![Screenshot (136)](https://user-images.githubusercontent.com/54992097/166520606-692a8a98-1d73-44f2-a060-95476d3c67df.png)
 ![Screenshot (137)](https://user-images.githubusercontent.com/54992097/166520621-d7664ff1-cb05-4dd8-8417-c51862bbdefe.png)
@@ -58,7 +57,8 @@ While building the application, we tested it thoroughly like we checked whether 
 
 
 ## Challenges we ran into
-
+Challenges are a part of project building and we also ran into several challenges along the way but through hard work and determination we got through all and finished the project.
+Various challenges like data is not getting passed to a component, component not rendering properly, css not working properly and breaking the page or API calls not returning data properly happened and these problems got resolved through research and team work.
 
 ## Accomplishments that we're proud of
 We are proud that we took part in this initiative and got to know how technology can save lives if used in the right place at right time.
@@ -71,8 +71,8 @@ This hackathon organised by Veersa proved very beneficial for all of us and we t
 The main attributes of learning includes time management, cooperation, prioritization of work, determination and hard work.
 
 ## What's next for Untitled
-
-
+There is always scope for more, so were are not getting settled here and we want to bring this application in mainstream and make it accessible to users all around the world because relation of doctors and users is same everywhere. I am also working on a Medical Diagnosis application wherein user has to pass his/her X-Ray and they get predictions which says accordingly that system is 90% sure about Pneumonia case or in opposite.
+So we will work on this project and introduce features like payment gateway and on door doctor facilities to patients wherever possible.
 
 
 
