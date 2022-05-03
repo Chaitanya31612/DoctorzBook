@@ -8,7 +8,6 @@ import { store } from "../redux/store/store";
 import setAuthToken from "../utils/setAuthToken";
 import PrivateRoute from "./PrivateRoute";
 import AppointmentContainer from "../containers/AppointmentContainer";
-import DoctorAppointments from "../components/Dashboard/DoctorAppointments";
 
 const LandingContainer = lazy(() => import("../containers/LandingContainer"));
 const LoginContainer = lazy(() => import("../containers/auth/LoginContainer"));
@@ -47,11 +46,6 @@ const AppRouter = () => {
             exact
             path="/appointments"
             component={AppointmentContainer}
-          />
-          <PrivateRoute
-            exact
-            path="/myappointments"
-            component={DoctorAppointments}
           />
           <Route path="/404" exact component={NotFoundContainer} />
           <Redirect to="/404" />

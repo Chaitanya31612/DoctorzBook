@@ -5,9 +5,19 @@ import { connect } from "react-redux";
 import { getTime } from "../../utils/utility";
 
 const DoctorAppointments = ({ appointments, getBookings }) => {
-  console.log(appointments);
+  // console.log(appointments);
   return (
     <div className="appointments">
+      <div class="dashboard">
+        <div className="dashboard__navbar">
+          <DashboardNavbar
+            links={[
+              ["Dashboard", "/dashboard"],
+              ["Appointments", "/appointments"],
+            ]}
+          />
+        </div>
+      </div>
       <div className="appointments--header">Your Appointments</div>
       <table className="appointments__table">
         <thead>
@@ -23,7 +33,7 @@ const DoctorAppointments = ({ appointments, getBookings }) => {
           {appointments &&
             appointments.map((appointment, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
+                <td>{index + 1}.</td>
                 <td>{appointment.name}</td>
                 <td>{appointment.email}</td>
                 <td>{appointment.bookingDate}</td>

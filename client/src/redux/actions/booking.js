@@ -91,3 +91,41 @@ export const bookSlot =
       });
     }
   };
+
+// cancel for appointments
+export const cancelBooking = (bookingDate, start, end) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/api/cancelBooking`,
+      { bookingDate, start, end },
+      config
+    );
+
+    const res = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/getBookings`
+    );
+
+    console.log(res);
+
+    swal(
+      `Your appointment on ${bookingDate} at ${start}:00 - ${end}:00 has been deleted.`,
+      {
+        icon: "success",
+      }
+    );
+
+    dispatch({
+      type: GET_APPOINTMENTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: CLEAR_PROFILE });
+  }
+};

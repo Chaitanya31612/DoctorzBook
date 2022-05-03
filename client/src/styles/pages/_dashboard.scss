@@ -17,6 +17,10 @@
         font-size: 1.8rem;
         justify-content: space-between;
         align-items: center;
+
+        &--center {
+            justify-content: center !important;
+        }
     }
 
     &__cards {

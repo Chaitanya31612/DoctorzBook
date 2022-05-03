@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getDoctorByUserid } from "../../redux/actions/doctor";
 import Preloader from "../Preloader/Preloader";
 import Hospital from "../../assets/svgs/dashboard-hospital.svg";
+import DashboardNavbar from "./DashboardNavbar";
 
 const DoctorDashboard = ({
   doctors: { loading, doctorSelected: doctor },
@@ -27,20 +28,33 @@ const DoctorDashboard = ({
         <Preloader />
       ) : (
         <>
+          <div class="dashboard">
+            <div className="dashboard__navbar">
+              <DashboardNavbar
+                links={[
+                  ["Dashboard", "/dashboard"],
+                  ["Appointments", "/appointments"],
+                ]}
+              />
+            </div>
+          </div>
           <div className="appointments--header" style={{ marginTop: "5rem" }}>
             Dashboard
           </div>
-          <div className="dashboard__sort">
-            <div></div>
-            <label>
-              <input
-                type="checkbox"
-                checked={checked}
-                onChange={handleChange}
-              />
-              {"  "}
-              View Profile
-            </label>
+          <div
+            className="dashboard__sort"
+            style={{
+              justifyContent: "center",
+              marginTop: "5rem",
+            }}
+          >
+            <input
+              type="button"
+              value="View Profile"
+              onClick={handleChange}
+              className="dashboard__card--bookbtn"
+              style={{ marginRight: 0 }}
+            />
           </div>
           {doctor ? (
             <div className="dashboard__cards">
