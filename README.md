@@ -7,6 +7,20 @@ The Pandemic has revealed a clear gap between the patient and the doctor. To fil
 This is a project that is built as a part of Veersa Technologies Hackathon competition with aim of Transforming Healthcare through technology innovation. The submission is made by students of Deenbandhu Chottu Ram University of Science and Technology, Murthal(Sonipat), Haryana.
 Doctors are lifesavers and that is why they shouldn't be too far from those who need healthcare. With more and more people having the need to seek medical attention, doctors need to make their services accessible and available to their patients. In this time and age where everything and anything can be found on the internet, we need to take advantage of the digital tools/ channels to enable quick scheduling of appointments.
 
+# Video
+
+https://user-images.githubusercontent.com/54992097/166520275-d426cb89-1044-4c16-8167-1e5d9df76cb1.mp4
+
+# Photos
+
+
+![Screenshot (134)](https://user-images.githubusercontent.com/54992097/166520595-da7587c6-6368-4f02-9e02-940388d03758.png)
+![Screenshot (136)](https://user-images.githubusercontent.com/54992097/166520606-692a8a98-1d73-44f2-a060-95476d3c67df.png)
+![Screenshot (137)](https://user-images.githubusercontent.com/54992097/166520621-d7664ff1-cb05-4dd8-8417-c51862bbdefe.png)
+![Screenshot (138)](https://user-images.githubusercontent.com/54992097/166520625-d6dbbc34-c290-4fda-8b7f-63b3dde32f92.png)
+![Screenshot (150)](https://user-images.githubusercontent.com/54992097/166520972-9d4ac28d-f842-446b-b70d-fb4fdf52abb5.png)
+![Screenshot (139)](https://user-images.githubusercontent.com/54992097/166520975-e37bef5a-876e-4ba4-8e9a-4d700187b6ec.png)
+![Screenshot (149)](https://user-images.githubusercontent.com/54992097/166520980-bc71a3fc-de03-47cb-b963-ad1199fd94ef.png)
 
 ## Inspiration
 We all know that during pandamic that happened, we lost many lives just because of lack of communication between doctors and patients. Patients were in need of hospital beds or facilities but couldn't find it primarily because of lack of resources but also because there was no such system where user can find places where slots are free for them. This could have saved them from going from one hospital to other in search of beds.
@@ -45,6 +59,7 @@ While building the application, we tested it thoroughly like we checked whether 
 
 ## Challenges we ran into
 
+
 ## Accomplishments that we're proud of
 We are proud that we took part in this initiative and got to know how technology can save lives if used in the right place at right time.
 Saving lives is the best Accomplishment in the world and we are all proud that we have taken initiative regarding the issue.
@@ -56,6 +71,7 @@ This hackathon organised by Veersa proved very beneficial for all of us and we t
 The main attributes of learning includes time management, cooperation, prioritization of work, determination and hard work.
 
 ## What's next for Untitled
+
 
 
 
