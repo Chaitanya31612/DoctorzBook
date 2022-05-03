@@ -67,3 +67,19 @@ export const getDoctor = (id) => async (dispatch) => {
     dispatch({ type: CLEAR_PROFILE });
   }
 };
+
+export const getDoctorByUserid = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/getDoctorByUserid/${id}`
+    );
+
+    dispatch({
+      type: GET_DOCTOR,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: CLEAR_PROFILE });
+  }
+};

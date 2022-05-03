@@ -63,7 +63,8 @@ const Landing = () => {
         </h1>
         <div className="about__main center-content">
           <div className="about__main-content">
-            This is a project that is built as a part of Veersa Technologies
+            This is a project that is built as a part of{" "}
+            <b>Veersa Technologies </b>
             Hackathon competition with aim of Transforming Healthcare through
             technology innovation. The submission is made by students of
             Deenbandhu Chottu Ram University of Science and Technology,

@@ -11,6 +11,7 @@
 
   &__sidebar {
     min-height: 100vh;
+    height: 100%;
     display: flex;
     flex: 3;
     flex-direction: column;
@@ -22,6 +23,10 @@
       rgba($color-primary, 0.2)
     );
     padding: 5rem 0;
+
+    &--extended {
+      background-image: none;
+    }
 
     &-logo {
       & img {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 import { getBooking, bookSlot } from "../../redux/actions/booking";
-import { hash } from "../../utils/utility";
+import { getTime, hash } from "../../utils/utility";
 
 const BookingForm = ({
   doctor,
@@ -75,6 +75,7 @@ const BookingForm = ({
     }
     bookSlot(
       doctor._id,
+      doctor.user_id,
       current.dateformat,
       available[availableId][0],
       available[availableId][1]
@@ -109,7 +110,7 @@ const BookingForm = ({
                     year > current.year
                   }
                 >
-                  {slot[0]}:00 - {slot[1]}:00
+                  {getTime(slot[0], slot[1])}
                 </option>
               ))}
           </select>

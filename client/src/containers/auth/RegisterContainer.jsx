@@ -31,8 +31,8 @@ const RegisterContainer = ({ isAuthenticated, register }) => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
+      // console.log("Latitude is :", position.coords.latitude);
+      // console.log("Longitude is :", position.coords.longitude);
       setLat(position.coords.latitude);
       setLong(position.coords.longitude);
     });
@@ -243,17 +243,31 @@ const RegisterContainer = ({ isAuthenticated, register }) => {
           </Link>
         </div>
       </div>
-      <div className="login__sidebar">
-        <div className="login__sidebar-logo">
-          <img src={authLogo} alt="authlogo" />
+      {radioOption == "user" ? (
+        <div className="login__sidebar">
+          <div className="login__sidebar-logo">
+            <img src={authLogo} alt="authlogo" />
+          </div>
+          <div className="login__sidebar-links">
+            <p>Already have an account?</p>
+            <Link to="/login" className="login__sidebar-links--auth">
+              Sign In
+            </Link>
+          </div>
         </div>
-        <div className="login__sidebar-links">
-          <p>Already have an account?</p>
-          <Link to="/login" className="login__sidebar-links--auth">
-            Sign In
-          </Link>
+      ) : (
+        <div className="login__sidebar login__sidebar--extended">
+          <div className="login__sidebar-logo">
+            <img src={authLogo} alt="authlogo" />
+          </div>
+          <div className="login__sidebar-links">
+            <p>Already have an account?</p>
+            <Link to="/login" className="login__sidebar-links--auth">
+              Sign In
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

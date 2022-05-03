@@ -18,7 +18,6 @@ const LoginContainer = ({ isAuthenticated, login }) => {
   const { email, password } = formData;
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(email, password);
   };
 
   if (isAuthenticated) {

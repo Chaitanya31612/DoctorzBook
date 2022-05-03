@@ -5,10 +5,32 @@
     }
 
     &__table {
-        margin: 2rem 20rem;
+        margin: 2rem auto;
         margin-top: 6rem;
         font-size: 1.8rem;
-        justify-content: space-between;
-        align-items: center;
+
+        border-collapse: collapse;
+        width: 70%;
+        color: #333;
+        text-align: center;
+
+        &--w9 {
+            width: 80%;
+        }
+
+        thead > tr > th {
+            background-color: #83abfa;
+        }
+        td,
+        th {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 10px;
+        }
+
+        th,
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
     }
 }

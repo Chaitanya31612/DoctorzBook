@@ -11,6 +11,7 @@ const bookingSchema = mongoose.Schema({
     ref: "Doctor",
     required: true,
   },
+  doctor_user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   bookingDate: { type: String, required: true },
   start: { type: Number, required: true },
   end: { type: Number, required: true },

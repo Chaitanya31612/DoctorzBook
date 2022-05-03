@@ -189,9 +189,9 @@ module.exports.authenticateMiddleware = async (req, res, next) => {
  */
 module.exports.getLoginDetails = async (req, res) => {
   try {
-    console.log(req.decoded);
+    // console.log(req.decoded);
     const user = await User.findById(req.decoded.id).select("-password");
-    console.log("user", user);
+    // console.log("user", user);
     res.status(200).json(user);
   } catch (err) {
     console.log(err.message);

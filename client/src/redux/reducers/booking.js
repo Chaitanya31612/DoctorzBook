@@ -1,8 +1,14 @@
-import { GET_BOOKING, GET_BOOKINGS, CLEAR_PROFILE } from "../ActionConstants";
+import {
+  GET_BOOKING,
+  GET_BOOKINGS,
+  CLEAR_PROFILE,
+  GET_APPOINTMENTS,
+} from "../ActionConstants";
 
 const initialState = {
   bookings: [],
   bookingsbyId: [],
+  appointments: [],
   loading: true,
 };
 
@@ -20,6 +26,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         bookings: payload,
+        loading: false,
+      };
+    case GET_APPOINTMENTS:
+      return {
+        ...state,
+        appointments: payload,
         loading: false,
       };
     case CLEAR_PROFILE:

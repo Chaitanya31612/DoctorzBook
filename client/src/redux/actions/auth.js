@@ -67,7 +67,7 @@ export const register = (formData) => async (dispatch) => {
 
 // login
 export const login = (email, password) => async (dispatch) => {
-  console.log("login here", email, password);
+  // console.log("login here", email, password);
   const config = {
     headers: {
       "Content-Type": "application/json",

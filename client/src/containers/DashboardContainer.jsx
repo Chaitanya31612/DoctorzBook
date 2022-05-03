@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import DashboardNavbar from "../components/Dashboard/DashboardNavbar";
 import DoctorDashboard from "../components/Dashboard/DoctorDashboard";
 import PatientDashboard from "../components/Dashboard/PatientDashboard";
 import MetaComponent from "../components/Meta/MetaComponent";
@@ -14,11 +16,21 @@ const DashboardContainer = ({ user }) => {
         keywords={metaData.home.keywords}
       />
       <div className="container container--bg">
-        {user && user.userType === "doctor" ? (
-          <DoctorDashboard />
-        ) : (
-          <PatientDashboard />
-        )}
+        <div class="dashboard">
+          <div className="dashboard__navbar">
+            <DashboardNavbar
+              links={[
+                ["Doctors", "/dashboard"],
+                ["Appointments", "/appointments"],
+              ]}
+            />
+          </div>
+          {user && user.userType === "doctor" ? (
+            <DoctorDashboard />
+          ) : (
+            <PatientDashboard />
+          )}
+        </div>
       </div>
     </>
   );

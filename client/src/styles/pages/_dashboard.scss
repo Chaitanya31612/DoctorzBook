@@ -37,6 +37,12 @@
         background-color: #f4f4f4;
         border: #ccc solid 1px;
         
+        &--profile {
+            grid-template-columns: 2fr 5fr;
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+            padding-left: 20rem;
+        }
 
         &--contents {
             margin-left: 5rem;

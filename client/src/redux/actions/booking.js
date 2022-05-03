@@ -1,10 +1,11 @@
 import axios from "axios";
 import swal from "sweetalert";
 
-import { CLEAR_PROFILE, GET_BOOKING } from "../ActionConstants";
-import { createHashHistory } from "history";
-
-const history = createHashHistory();
+import {
+  CLEAR_PROFILE,
+  GET_APPOINTMENTS,
+  GET_BOOKING,
+} from "../ActionConstants";
 
 // get booking for a doctor
 export const getBooking = (id) => async (dispatch) => {
@@ -23,9 +24,28 @@ export const getBooking = (id) => async (dispatch) => {
   }
 };
 
+// getBookings for appointments
+export const getBookings = () => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/getBookings`
+    );
+
+    console.log(res);
+
+    dispatch({
+      type: GET_APPOINTMENTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: CLEAR_PROFILE });
+  }
+};
+
 // book slots
 export const bookSlot =
-  (doctor_id, bookingDate, start, end) => async (dispatch) => {
+  (doctor_id, doctor_user_id, bookingDate, start, end) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -37,6 +57,7 @@ export const bookSlot =
         `${process.env.REACT_APP_BASE_URL}/api/bookSlot`,
         {
           doctor_id,
+          doctor_user_id,
           bookingDate,
           start,
           end,
@@ -51,7 +72,7 @@ export const bookSlot =
         icon: "success",
         button: "OK",
       }).then((clicked) => {
-        window.location = "/dashboard";
+        window.location = "/appointments";
       });
 
       dispatch({

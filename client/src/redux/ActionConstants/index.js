@@ -11,3 +11,4 @@ export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const SET_CURRENT = "SET_CURRENT";
 export const GET_BOOKING = "GET_BOOKING";
 export const GET_BOOKINGS = "GET_BOOKINGS";
+export const GET_APPOINTMENTS = "GET_APPOINTMENTS";
