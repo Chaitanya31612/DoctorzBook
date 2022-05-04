@@ -81,10 +81,13 @@ Our application provides various other features:-
 
 ## How we built it
 In order to build any application or software first, we need to understand what the project wants from us. So we first analysed the problem statement, then in our group discussion we all proposed some ideas out of which some were rejected while others were brainstormed upon. 
+
 Before getting into coding we made wireframes for how our site should look and what our API structure and database schemas should look like. This visual representation enabled us to understand exactly what is happening and how we are going to achieve it.
 Then gradually we moved forward and piece by piece developed the application.
+
 The application is built using the MERN stack and has used best coding practices and code structure which are prevalent in the software industry.
 While building the application, we tested it thoroughly like we checked whether each page is behaving properly and we tested each test case that we made, we also tested all APIs using Postman.
+
 Currently, for this state of our application, we haven't used any third party services in our app and it's a product of pure logic and design. For the location-based sorting, we have used GeoJSON format in our mongoose schema which enabled us to sort the documents according to passed coordinates.
 
 ### Built With
@@ -99,7 +102,9 @@ Currently, for this state of our application, we haven't used any third party se
 
 ## Challenges we ran into
 Challenges are a part of project building and we also ran into several challenges along the way but through hard work and determination, we got through all and finished the project.
+
 Various challenges like data not getting passed to a component, a component not rendering properly, css not working properly and breaking the page or API calls not returning data properly happened and these problems got resolved through research and teamwork.
+
 Although working in a team brings a lot of ideas some good, some bad to the table but we managed to keep only the ideas which are relevant for this application and made sure that everyone agrees on it unless they have a good reason.
 
 
@@ -111,7 +116,9 @@ We have implemented all the required features which are essential to this applic
 
 ## What we learned
 We learnt a very essential thing which is how to prioritise work and complete a given task in short time through determination and teamwork. We learnt that there is always scope for more improvements and that it depends on us what vision we have in our minds.
+
 This hackathon organised by Veersa proved very beneficial for all of us and we thank Veersa for providing this opportunity.
+
 The main attributes of learning include time management, cooperation, prioritization of work, determination and hard work.
 We also learned design patterns for software, efficient structure for our database schemas, GeoJSON format available in MongoDB for searching according to coordinates, and testing of API and user interfaces.
 
