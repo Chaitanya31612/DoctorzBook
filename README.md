@@ -41,6 +41,16 @@ https://user-images.githubusercontent.com/54992097/166520275-d426cb89-1044-4c16-
 ![Screenshot (152)](https://user-images.githubusercontent.com/54992097/166621077-e2af2d48-fa9e-49c0-933f-c9532ff57fae.png)
 ![Screenshot (155)](https://user-images.githubusercontent.com/54992097/166621698-8c985a25-f766-48fd-85e0-ef52599c412c.png)
 
+### Testing
+Postman testing of API's. Here are some for example
+![image](https://user-images.githubusercontent.com/54992097/166694978-1b40c7c1-8d86-4297-86eb-d3af86acb8d3.png)
+![image](https://user-images.githubusercontent.com/54992097/166693912-c9d37788-3058-48c0-ba70-7ca2d444f1c7.png)
+![image](https://user-images.githubusercontent.com/54992097/166693965-7076b3a0-2812-4433-959e-13b77efd0393.png)
+
+Mocha Unit testing for Node.js Application
+![image](https://user-images.githubusercontent.com/54992097/166693486-4500e6c5-9915-4542-b3e5-0283aae89002.png)
+
+
 
 ## Inspiration
 We all know that during the pandemic that happened, we lost many lives just because of a lack of communication between doctors and patients. Patients were in need of hospital beds or facilities but couldn't find them primarily because of a lack of resources but also because there was no such system where users can find places where slots are free for them. This could have saved them from going from one hospital to other in search of beds.
