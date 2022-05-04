@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha — timeout 10000",
     "start": "node server.js",
     "dev": "nodemon server.js --ignore client"
   },
@@ -15,6 +15,8 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -23,6 +25,7 @@
     "helmet": "^4.6.0",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
+    "mocha": "^5.2.0",
     "mongodb": "^3.6.10",
     "mongoose": "^5.13.14",
     "nodemon": "^2.0.12",
