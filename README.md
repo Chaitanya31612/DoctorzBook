@@ -107,7 +107,16 @@ Currently, for this state of our application, we haven't used any third party se
 * Node.js 
 * Redux
 * SCSS
-* Figma/Adobe Xd
+* Figma/Adobe Xd/Draw.io
+
+
+### Testing
+Testing of this application is thoroughly done and this application is error free.
+We have tested the site as follows:-
+1. Postman for API Testing
+2. Mocha and Chai library
+3. Testing of UI elements according to test cases.
+4. Alpha testing within the team.
 
 
 ## Challenges we ran into
