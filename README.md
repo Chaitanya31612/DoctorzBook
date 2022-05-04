@@ -1,5 +1,7 @@
 # DoctorzBook
 
+![DoctorzBook](https://socialify.git.ci/Chaitanya31612/DoctorzBook/image?description=1&font=Bitter&language=1&name=1&owner=1&stargazers=1&theme=Dark)
+
 DoctorzBook is a real-time appointments booking application where user can book appointments with doctors from the convenience of their homes. This application provides user with a very intuitive user experience and try to make appointments process as easy as it can get.
 
 The Pandemic has revealed a clear gap between the patient and the doctor. To fill that void, we present Doctorzbook, a service that allows you to schedule appointments with doctors at your convenience.
