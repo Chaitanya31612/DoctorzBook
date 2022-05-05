@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import swal from "sweetalert";
 
 import {
@@ -55,7 +56,7 @@ export const bookSlot =
     try {
       const now = new Date();
       const time = now.getHours();
-      if (time >= start) {
+      if (moment(now).format("MM/DD/YY") == bookingDate && time >= start) {
         swal("Oops!", "You can't book an appointment in the past!", "error");
       } else {
         const res = await axios.post(
