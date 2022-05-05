@@ -32,7 +32,7 @@ const BookingForm = ({
   const [available, setAvailable] = useState(bookingTimes);
   // console.log(available);
 
-  console.log("bookingsbyId", bookingsbyId);
+  // console.log("bookingsbyId", bookingsbyId);
 
   const [bookingLoading, setBookingLoading] = useState(true);
 
@@ -49,7 +49,7 @@ const BookingForm = ({
         available[i][2] = true;
       }
     }
-    console.log("heree change", available);
+    // console.log("heree change", available);
     const newAvailable = [...available];
     setAvailable(newAvailable);
     setBookingLoading(false);

@@ -53,32 +53,37 @@ export const bookSlot =
     };
 
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/api/bookSlot`,
-        {
-          doctor_id,
-          doctor_user_id,
-          bookingDate,
-          start,
-          end,
-        },
-        config
-      );
-      console.log(res);
+      const now = new Date();
+      const time = now.getHours();
+      if (time >= start) {
+        swal("Oops!", "You can't book an appointment in the past!", "error");
+      } else {
+        const res = await axios.post(
+          `${process.env.REACT_APP_BASE_URL}/api/bookSlot`,
+          {
+            doctor_id,
+            doctor_user_id,
+            bookingDate,
+            start,
+            end,
+          },
+          config
+        );
+        // console.log(res);
 
-      swal({
-        title: "Booking Successful!",
-        text: "Have a great day ahead.",
-        icon: "success",
-        button: "OK",
-      }).then((clicked) => {
-        window.location = "/appointments";
-      });
-
-      dispatch({
-        type: GET_BOOKING,
-        payload: res.data,
-      });
+        swal({
+          title: "Booking Successful!",
+          text: "Have a great day ahead.",
+          icon: "success",
+          button: "OK",
+        }).then((clicked) => {
+          window.location = "/appointments";
+        });
+        dispatch({
+          type: GET_BOOKING,
+          payload: res.data,
+        });
+      }
     } catch (err) {
       console.log(err);
       dispatch({ type: CLEAR_PROFILE });
