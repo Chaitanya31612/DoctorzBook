@@ -15,7 +15,7 @@ const AppointmentContainer = ({ loading, user, appointments, getBookings }) => {
     getBookings();
   }, [getBookings]);
 
-  console.log(appointments);
+  // console.log(appointments);
   return (
     <>
       <MetaComponent

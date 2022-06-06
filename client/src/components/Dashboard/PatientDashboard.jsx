@@ -57,7 +57,7 @@ const PatientDashboard = ({
       <h1 className="dashboard__heading">Dashboard</h1>
       {/* sort section */}
       <div className="dashboard__sort">
-        <div>List of doctors</div>
+        <div className="dashboard__sort--title">List of doctors</div>
         <label>
           <input type="checkbox" checked={checked} onChange={handleChange} />
           {"  "}
@@ -73,7 +73,11 @@ const PatientDashboard = ({
           {doctorsList.length > 0 ? (
             doctorsList.map((doctor) => (
               <div className="dashboard__card">
-                <img className="round-img" src={Hospital} alt="" />
+                <img
+                  className="round-img dashboard__card--hospital"
+                  src={Hospital}
+                  alt=""
+                />
                 <div className="dashboard__card--contents">
                   <h1 className="dashboard__card--title">
                     <span className="dashboard__card--label">

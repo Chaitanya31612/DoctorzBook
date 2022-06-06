@@ -30,28 +30,24 @@ const AppRouter = () => {
   }, []);
 
   return (
-    <TransitionGroup>
-      <CSSTransition key={location.key} classNames="my-node" timeout={3000}>
-        <Switch location={location}>
-          <Route exact path="/" component={LandingContainer} />
-          <Route exact path="/login" component={LoginContainer} />
-          <Route exact path="/register" component={RegisterContainer} />
-          <PrivateRoute
-            exact
-            path="/dashboard"
-            component={DashboardContainer}
-          />
-          <PrivateRoute exact path="/doctor/:id" component={Booking} />
-          <PrivateRoute
-            exact
-            path="/appointments"
-            component={AppointmentContainer}
-          />
-          <Route path="/404" exact component={NotFoundContainer} />
-          <Redirect to="/404" />
-        </Switch>
-      </CSSTransition>
-    </TransitionGroup>
+    // <TransitionGroup>
+    //   <CSSTransition key={location.key} classNames="my-node" timeout={3000}>
+    <Switch location={location}>
+      <Route exact path="/" component={LandingContainer} />
+      <Route exact path="/login" component={LoginContainer} />
+      <Route exact path="/register" component={RegisterContainer} />
+      <PrivateRoute exact path="/dashboard" component={DashboardContainer} />
+      <PrivateRoute exact path="/doctor/:id" component={Booking} />
+      <PrivateRoute
+        exact
+        path="/appointments"
+        component={AppointmentContainer}
+      />
+      <Route path="/404" exact component={NotFoundContainer} />
+      <Redirect to="/404" />
+    </Switch>
+    //   </CSSTransition>
+    // </TransitionGroup>
   );
 };
 

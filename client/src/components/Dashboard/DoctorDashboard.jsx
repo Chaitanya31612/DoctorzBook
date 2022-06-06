@@ -20,7 +20,7 @@ const DoctorDashboard = ({
     getDoctorByUserid();
   }, [getDoctorByUserid]);
 
-  console.log(doctor);
+  // console.log(doctor);
 
   return (
     <>
@@ -59,7 +59,11 @@ const DoctorDashboard = ({
           {doctor ? (
             <div className="dashboard__cards">
               <div className="dashboard__card dashboard__card--profile">
-                <img className="round-img" src={Hospital} alt="" />
+                <img
+                  className="round-img dashboard__card--hospital"
+                  src={Hospital}
+                  alt=""
+                />
                 <div className="dashboard__card--contents">
                   <h1 className="dashboard__card--title">
                     <span className="dashboard__card--label">

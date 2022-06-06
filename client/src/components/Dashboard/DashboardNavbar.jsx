@@ -35,16 +35,16 @@ const DashboardNavbar = ({ links, logout }) => {
         <ul class="navigation__list">
           {links.map((link) => (
             <li class="navigation__item">
-              <a href="/" class="navigation__link">
-                {link}
+              <a href={link[1]} class="navigation__link">
+                {link[0]}
               </a>
             </li>
           ))}
           <div className="navigation__item--auth">
             <li class="navigation__item">
-              <Link to="/login" class="navigation__link">
+              <div onClick={logout} class="navigation__link">
                 Logout
-              </Link>
+              </div>
             </li>
           </div>
         </ul>

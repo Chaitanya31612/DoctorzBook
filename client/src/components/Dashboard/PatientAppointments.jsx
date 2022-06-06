@@ -103,7 +103,7 @@ const PatientAppointments = ({ appointments, getBookings, cancelBooking }) => {
 };
 
 const Status = ({ data }) => {
-  console.log(data);
+  // console.log(data);
 
   return <td style={{ color: data.clr }}>{data.status}</td>;
 };

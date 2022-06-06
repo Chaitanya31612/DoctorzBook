@@ -4,6 +4,10 @@
     &__navbar {
         box-shadow: 2px 1px rgba(0, 0, 0, 0.3);
         margin-bottom: 3rem;
+
+        @include respond(tab-land) {
+            box-shadow: none;
+        }
     }
 
     &__heading {
@@ -18,6 +22,17 @@
         justify-content: space-between;
         align-items: center;
 
+        @include respond(tab-land) {
+            margin: 2rem;
+        }
+
+        &--title {
+            @include respond(tab-port) {
+                // visibility: hidden;
+                display: none;
+            }
+        }
+
         &--center {
             justify-content: center !important;
         }
@@ -25,6 +40,16 @@
 
     &__cards {
         margin: 5rem 20rem;
+
+        @include respond(tab-land) {
+            margin: 5rem auto !important;
+        }
+        @include respond(tab-port) {
+            
+        }
+        @include respond(phone) {
+            
+        }
     }
 
     &__card {
@@ -40,12 +65,32 @@
         margin-bottom: 1rem;
         background-color: #f4f4f4;
         border: #ccc solid 1px;
+        min-height: 33rem;
+
+        @include respond(tab-land) {
+            grid-template-columns: 1fr;
+            flex-wrap: wrap;
+            margin: 0 1rem;
+        }
+
+        &--hospital {
+            @include respond(tab-land) {
+                display: none;
+            }
+        }
         
         &--profile {
             grid-template-columns: 2fr 5fr;
             padding-top: 10rem;
             padding-bottom: 10rem;
             padding-left: 20rem;
+
+            @include respond(tab-land) {
+                grid-template-columns: 1fr;
+                flex-wrap: wrap;
+                margin: 0 3rem;
+                padding: 0;
+            }
         }
 
         &--contents {
@@ -66,6 +111,11 @@
             transition: opacity 0.2s ease-in;
             outline: none;
             font-weight: 600;
+
+            @include respond(tab-land) {
+                margin: 2rem 5rem;
+                font-size: 1.3rem;
+            }
         }
 
         &--label {
@@ -73,14 +123,23 @@
             font-weight: 600;
             color: $color-grey-dark-2;
             margin-right: 2rem;
+            @include respond(tab-land) {
+                font-size: 1rem;
+            }
         }
 
         &--title {
             font-size: 2rem;
+            @include respond(tab-land) {
+                font-size: 1.5rem;
+            }
         }
 
         &--item {
             font-size: 1.5rem;
+            @include respond(tab-land) {
+                font-size: 1.3rem;
+            }
         }
     }
 

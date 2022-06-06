@@ -65,7 +65,7 @@ const BookingForm = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+    // console.log("submit");
     if (!current.dateSelected) {
       swal({
         title: "Please select a date",
@@ -104,10 +104,12 @@ const BookingForm = ({
                   value={`${slot[0]}:00 - ${slot[1]}:00`}
                   disabled={
                     !slot[2] ||
-                    (slot[0] <= time && date === current.date) ||
-                    date > current.date ||
-                    month > current.month ||
-                    year > current.year
+                    (date === current.date && slot[0] <= time) ||
+                    current.year < year ||
+                    current.month < month ||
+                    (current.year === year &&
+                      current.month === month &&
+                      current.date < date)
                   }
                 >
                   {getTime(slot[0], slot[1])}
