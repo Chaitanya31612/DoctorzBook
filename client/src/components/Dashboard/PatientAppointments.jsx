@@ -6,15 +6,29 @@ import { getTime } from "../../utils/utility";
 import swal from "sweetalert";
 
 const PatientAppointments = ({ appointments, getBookings, cancelBooking }) => {
-  const getStatus = (date, start, end) => {
+  const getStatus = (month, date, year, start, end) => {
+    // console.log(date, month, year);
     let today = new Date();
     let time = today.getHours();
     let todaydate = today.getDate();
+    let todaymonth = today.getMonth() + 1;
+    let todayyear = parseInt(today.getFullYear().toString().slice(-2));
+    let todaydatestring = `${todayyear}/${todaymonth}/${todaydate}`;
+    let appointmentdatestring = `${year}/${month}/${date}`;
+    console.log(todaydatestring, appointmentdatestring);
+    // console.log(todaydate, todaymonth, todayyear, year);
     // console.log(time, date, todaydate, start, end, date === todaydate);
 
-    if (date < todaydate || (date === todaydate && time >= end)) {
+    if (
+      appointmentdatestring < todaydatestring ||
+      (appointmentdatestring === todaydatestring && time >= end)
+    ) {
       return { status: "Attended", clr: "green" };
-    } else if (date === todaydate && time >= start && time < end) {
+    } else if (
+      appointmentdatestring === todaydatestring &&
+      time >= start &&
+      time < end
+    ) {
       return { status: "In Progress", clr: "blue" };
     } else {
       return { status: "Upcoming", clr: "orange" };
@@ -81,7 +95,9 @@ const PatientAppointments = ({ appointments, getBookings, cancelBooking }) => {
                 <td>{getTime(appointment.start, appointment.end)}</td>
                 <Status
                   data={getStatus(
+                    parseInt(appointment.bookingDate.substring(0, 2)),
                     parseInt(appointment.bookingDate.substring(3, 5)),
+                    parseInt(appointment.bookingDate.substring(6)),
                     appointment.start,
                     appointment.end
                   )}
@@ -103,7 +119,7 @@ const PatientAppointments = ({ appointments, getBookings, cancelBooking }) => {
 };
 
 const Status = ({ data }) => {
-  // console.log(data);
+  console.log(data);
 
   return <td style={{ color: data.clr }}>{data.status}</td>;
 };
