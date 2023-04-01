@@ -9,7 +9,7 @@ The Pandemic has revealed a clear gap between the patient and the doctor. To fil
 This is a project that is built as a part of Veersa Technologies Hackathon competition with aim of Transforming Healthcare through technology innovation. The submission is made by students of Deenbandhu Chottu Ram University of Science and Technology, Murthal(Sonipat), Haryana.
 Doctors are lifesavers and that is why they shouldn't be too far from those who need healthcare. With more and more people having the need to seek medical attention, doctors need to make their services accessible and available to their patients. In this time and age where everything and anything can be found on the internet, we need to take advantage of the digital tools/ channels to enable quick scheduling of appointments.
 
-# Video
+# Live Demo
 
 https://user-images.githubusercontent.com/54992097/166520275-d426cb89-1044-4c16-8167-1e5d9df76cb1.mp4
 
